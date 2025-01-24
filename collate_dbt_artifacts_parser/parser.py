@@ -38,7 +38,9 @@ from collate_dbt_artifacts_parser.parsers.run_results.run_results_v3 import RunR
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v4 import RunResultsV4
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v5 import RunResultsV5
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v6 import RunResultsV6
-from collate_dbt_artifacts_parser.parsers.run_results.run_results_cloud import RunResultsCLOUD
+from collate_dbt_artifacts_parser.parsers.run_results.run_results_cloud import (
+    RunResultsCLOUD,
+)
 from collate_dbt_artifacts_parser.parsers.sources.sources_v1 import SourcesV1
 from collate_dbt_artifacts_parser.parsers.sources.sources_v2 import SourcesV2
 from collate_dbt_artifacts_parser.parsers.sources.sources_v3 import SourcesV3
@@ -85,19 +87,19 @@ def parse_catalog_v1(catalog: dict) -> Union[CatalogV1, CatalogCLOUD]:
 def parse_manifest(
     manifest: dict,
 ) -> Union[
-        ManifestV1,
-        ManifestV2,
-        ManifestV3,
-        ManifestV4,
-        ManifestV5,
-        ManifestV6,
-        ManifestV7,
-        ManifestV8,
-        ManifestV9,
-        ManifestV10,
-        ManifestV11,
-        ManifestV12,
-        ManifestCLOUD,
+    ManifestV1,
+    ManifestV2,
+    ManifestV3,
+    ManifestV4,
+    ManifestV5,
+    ManifestV6,
+    ManifestV7,
+    ManifestV8,
+    ManifestV9,
+    ManifestV10,
+    ManifestV11,
+    ManifestV12,
+    ManifestCLOUD,
 ]:
     """Parse manifest.json
 
@@ -213,6 +215,7 @@ def parse_manifest_v9(manifest: dict) -> ManifestV9:
         return ManifestV9(**manifest)
     raise ValueError("Not a manifest.json v9")
 
+
 def parse_manifest_v10(manifest: dict) -> ManifestV10:
     """Parse manifest.json ver.10"""
     dbt_schema_version = get_dbt_schema_version(artifact_json=manifest)
@@ -239,13 +242,21 @@ def parse_manifest_v12(manifest: dict) -> Union[ManifestV12, ManifestCLOUD]:
             return ManifestCLOUD(**manifest)
     raise ValueError("Not a manifest.json v12")
 
+
 #
 # run-results
 #
 def parse_run_results(
     run_results: dict,
-) -> Union[RunResultsV1, RunResultsV2, RunResultsV3, RunResultsV4,
-           RunResultsV5, RunResultsV6, RunResultsCLOUD]:
+) -> Union[
+    RunResultsV1,
+    RunResultsV2,
+    RunResultsV3,
+    RunResultsV4,
+    RunResultsV5,
+    RunResultsV6,
+    RunResultsCLOUD,
+]:
     """Parse run-results.json
 
     Args:
@@ -304,6 +315,7 @@ def parse_run_results_v4(run_results: dict) -> RunResultsV4:
         return RunResultsV4(**run_results)
     raise ValueError("Not a run-results.json v4")
 
+
 def parse_run_results_v5(run_results: dict) -> RunResultsV5:
     """Parse run-results.json v5"""
     dbt_schema_version = get_dbt_schema_version(artifact_json=run_results)
@@ -322,10 +334,13 @@ def parse_run_results_v6(run_results: dict) -> Union[RunResultsV6, RunResultsCLO
             return RunResultsCLOUD(**run_results)
     raise ValueError("Not a run-results.json v6")
 
+
 #
 # sources
 #
-def parse_sources(sources: dict) -> Union[SourcesV1, SourcesV2, SourcesV3, SourcesCLOUD]:
+def parse_sources(
+    sources: dict,
+) -> Union[SourcesV1, SourcesV2, SourcesV3, SourcesCLOUD]:
     """Parse sources.json
 
     Args:

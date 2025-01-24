@@ -38,7 +38,10 @@ from collate_dbt_artifacts_parser.parsers.run_results.run_results_v4 import RunR
 from collate_dbt_artifacts_parser.parsers.sources.sources_v1 import SourcesV1
 from collate_dbt_artifacts_parser.parsers.sources.sources_v2 import SourcesV2
 from collate_dbt_artifacts_parser.parsers.sources.sources_v3 import SourcesV3
-from collate_dbt_artifacts_parser.parsers.utils import get_dbt_schema_version, get_model_class
+from collate_dbt_artifacts_parser.parsers.utils import (
+    get_dbt_schema_version,
+    get_model_class,
+)
 from collate_dbt_artifacts_parser.parsers.version_map import ArtifactTypes
 from collate_dbt_artifacts_parser.utils import get_project_root
 
