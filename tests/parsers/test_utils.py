@@ -20,27 +20,27 @@ import os
 
 import pytest
 
-from dbt_artifacts_parser.parsers.catalog.catalog_v1 import CatalogV1
-from dbt_artifacts_parser.parsers.manifest.manifest_v1 import ManifestV1
-from dbt_artifacts_parser.parsers.manifest.manifest_v2 import ManifestV2
-from dbt_artifacts_parser.parsers.manifest.manifest_v3 import ManifestV3
-from dbt_artifacts_parser.parsers.manifest.manifest_v4 import ManifestV4
-from dbt_artifacts_parser.parsers.manifest.manifest_v5 import ManifestV5
-from dbt_artifacts_parser.parsers.manifest.manifest_v6 import ManifestV6
-from dbt_artifacts_parser.parsers.manifest.manifest_v7 import ManifestV7
-from dbt_artifacts_parser.parsers.manifest.manifest_v8 import ManifestV8
-from dbt_artifacts_parser.parsers.manifest.manifest_v9 import ManifestV9
-from dbt_artifacts_parser.parsers.manifest.manifest_v10 import ManifestV10
-from dbt_artifacts_parser.parsers.run_results.run_results_v1 import RunResultsV1
-from dbt_artifacts_parser.parsers.run_results.run_results_v2 import RunResultsV2
-from dbt_artifacts_parser.parsers.run_results.run_results_v3 import RunResultsV3
-from dbt_artifacts_parser.parsers.run_results.run_results_v4 import RunResultsV4
-from dbt_artifacts_parser.parsers.sources.sources_v1 import SourcesV1
-from dbt_artifacts_parser.parsers.sources.sources_v2 import SourcesV2
-from dbt_artifacts_parser.parsers.sources.sources_v3 import SourcesV3
-from dbt_artifacts_parser.parsers.utils import get_dbt_schema_version, get_model_class
-from dbt_artifacts_parser.parsers.version_map import ArtifactTypes
-from dbt_artifacts_parser.utils import get_project_root
+from collate_dbt_artifacts_parser.parsers.catalog.catalog_v1 import CatalogV1
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_v1 import ManifestV1
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_v2 import ManifestV2
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_v3 import ManifestV3
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_v4 import ManifestV4
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_v5 import ManifestV5
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_v6 import ManifestV6
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_v7 import ManifestV7
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_v8 import ManifestV8
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_v9 import ManifestV9
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_v10 import ManifestV10
+from collate_dbt_artifacts_parser.parsers.run_results.run_results_v1 import RunResultsV1
+from collate_dbt_artifacts_parser.parsers.run_results.run_results_v2 import RunResultsV2
+from collate_dbt_artifacts_parser.parsers.run_results.run_results_v3 import RunResultsV3
+from collate_dbt_artifacts_parser.parsers.run_results.run_results_v4 import RunResultsV4
+from collate_dbt_artifacts_parser.parsers.sources.sources_v1 import SourcesV1
+from collate_dbt_artifacts_parser.parsers.sources.sources_v2 import SourcesV2
+from collate_dbt_artifacts_parser.parsers.sources.sources_v3 import SourcesV3
+from collate_dbt_artifacts_parser.parsers.utils import get_dbt_schema_version, get_model_class
+from collate_dbt_artifacts_parser.parsers.version_map import ArtifactTypes
+from collate_dbt_artifacts_parser.utils import get_project_root
 
 
 class TestDbtUtils:

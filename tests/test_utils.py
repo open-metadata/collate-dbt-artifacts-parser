@@ -15,7 +15,7 @@
 import os
 import unittest
 
-from dbt_artifacts_parser.utils import get_project_root
+from collate_dbt_artifacts_parser.utils import get_project_root
 
 
 class TestUtils(unittest.TestCase):

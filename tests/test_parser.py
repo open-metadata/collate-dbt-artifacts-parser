@@ -19,8 +19,8 @@ import os
 import pytest
 import yaml
 
-from dbt_artifacts_parser import parser
-from dbt_artifacts_parser.utils import get_project_root
+from collate_dbt_artifacts_parser import parser
+from collate_dbt_artifacts_parser.utils import get_project_root
 
 
 @pytest.mark.parametrize("version", ["v1"])

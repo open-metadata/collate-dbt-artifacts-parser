@@ -22,19 +22,19 @@ SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 MODULE_ROOT="$(dirname "${SCRIPT_DIR}")"
 
 # Base class
-base_class="dbt_artifacts_parser.parsers.base.BaseParserModel"
+base_class="collate_dbt_artifacts_parser.parsers.base.BaseParserModel"
 target_python_version="3.9"
 output_model_type="pydantic_v2.BaseModel"
 
 #
 # catalog
 #
-catalog_versions=("v1")
+catalog_versions=("v1" "cloud")
 for ver in "${catalog_versions[@]}"
 do
   # Convert `v1` to `V1`
-  upper_ver=${ver^v}
-  destination="${MODULE_ROOT}/dbt_artifacts_parser/parsers/catalog/catalog_${ver}.py"
+  upper_ver=$(echo "${ver}" | tr '[:lower:]' '[:upper:]')
+  destination="${MODULE_ROOT}/collate_dbt_artifacts_parser/parsers/catalog/catalog_${ver}.py"
   echo "Generate ${destination}"
   datamodel-codegen  --input-file-type jsonschema \
     --target-python-version "${target_python_version}" \
@@ -42,19 +42,19 @@ do
     --disable-timestamp \
     --base-class "${base_class}" \
     --class-name "Catalog${upper_ver}" \
-    --input "${MODULE_ROOT}/dbt_artifacts_parser/resources/catalog/catalog_${ver}.json" \
+    --input "${MODULE_ROOT}/collate_dbt_artifacts_parser/resources/catalog/catalog_${ver}.json" \
     --output "${destination}"
 done
 
 #
 # manifest
 #
-manifest_versions=("v1" "v2" "v3" "v4" "v5" "v6" "v7" "v8" "v9" "v10" "v11" "v12")
+manifest_versions=("v1" "v2" "v3" "v4" "v5" "v6" "v7" "v8" "v9" "v10" "v11" "v12" "cloud")
 for ver in "${manifest_versions[@]}"
 do
   # Convert `v1` to `V1`
-  upper_ver=${ver^v}
-  destination="${MODULE_ROOT}/dbt_artifacts_parser/parsers/manifest/manifest_${ver}.py"
+  upper_ver=$(echo "${ver}" | tr '[:lower:]' '[:upper:]')
+  destination="${MODULE_ROOT}/collate_dbt_artifacts_parser/parsers/manifest/manifest_${ver}.py"
   echo "Generate ${destination}"
   datamodel-codegen  --input-file-type jsonschema \
     --target-python-version "${target_python_version}" \
@@ -62,19 +62,19 @@ do
     --disable-timestamp \
     --base-class "${base_class}" \
     --class-name "Manifest${upper_ver}" \
-    --input "${MODULE_ROOT}/dbt_artifacts_parser/resources/manifest/manifest_${ver}.json" \
+    --input "${MODULE_ROOT}/collate_dbt_artifacts_parser/resources/manifest/manifest_${ver}.json" \
     --output "${destination}"
 done
 
 #
 # run-results
 #
-run_results_versions=("v1" "v2" "v3" "v4" "v5" "v6")
+run_results_versions=("v1" "v2" "v3" "v4" "v5" "v6" "cloud")
 for ver in "${run_results_versions[@]}"
 do
   # Convert `v1` to `V1`
-  upper_ver=${ver^v}
-  destination="${MODULE_ROOT}/dbt_artifacts_parser/parsers/run_results/run_results_${ver}.py"
+  upper_ver=$(echo "${ver}" | tr '[:lower:]' '[:upper:]')
+  destination="${MODULE_ROOT}/collate_dbt_artifacts_parser/parsers/run_results/run_results_${ver}.py"
   echo "Generate ${destination}"
   datamodel-codegen  --input-file-type jsonschema \
     --target-python-version "${target_python_version}" \
@@ -82,19 +82,19 @@ do
     --disable-timestamp \
     --base-class "${base_class}" \
     --class-name "RunResults${upper_ver}" \
-    --input "${MODULE_ROOT}/dbt_artifacts_parser/resources/run-results/run-results_${ver}.json" \
+    --input "${MODULE_ROOT}/collate_dbt_artifacts_parser/resources/run-results/run-results_${ver}.json" \
     --output "${destination}"
 done
 
 #
 # sources
 #
-sources_versions=("v1" "v2" "v3")
+sources_versions=("v1" "v2" "v3" "cloud")
 for ver in "${sources_versions[@]}"
 do
   # Convert `v1` to `V1`
-  upper_ver=${ver^v}
-  destination="${MODULE_ROOT}/dbt_artifacts_parser/parsers/sources/sources_${ver}.py"
+  upper_ver=$(echo "${ver}" | tr '[:lower:]' '[:upper:]')
+  destination="${MODULE_ROOT}/collate_dbt_artifacts_parser/parsers/sources/sources_${ver}.py"
   echo "Generate ${destination}"
   datamodel-codegen  --input-file-type jsonschema \
     --target-python-version "${target_python_version}" \
@@ -102,6 +102,6 @@ do
     --disable-timestamp \
     --base-class "${base_class}" \
     --class-name "Sources${upper_ver}" \
-    --input "${MODULE_ROOT}/dbt_artifacts_parser/resources/sources/sources_${ver}.json" \
+    --input "${MODULE_ROOT}/collate_dbt_artifacts_parser/resources/sources/sources_${ver}.json" \
     --output "${destination}"
 done

@@ -48,7 +48,7 @@ jobs:
           sleep 30
       - name: Install package
         run: |
-          python3 -m pip install -U dbt-artifacts-parser
+          python3 -m pip install -U collate-dbt-artifacts-parser
       - name: Test package
         run: |
-          python -c 'import dbt_artifacts_parser; print(dbt_artifacts_parser.__version__)'
+          python -c 'import collate_dbt_artifacts_parser; print(collate_dbt_artifacts_parser.__version__)'
