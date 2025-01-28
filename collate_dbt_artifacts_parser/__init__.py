@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#
 #  Licensed to the Apache Software Foundation (ASF) under one or more
 #  contributor license agreements.  See the NOTICE file distributed with
 #  this work for additional information regarding copyright ownership.
@@ -13,12 +13,9 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-set -e
-set -x
+#
+"""
+A dbt artifacts parser in python
+"""
 
-set -e
-
-SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
-MODULE_ROOT="$(dirname "$SCRIPT_DIR")"
-
-yapf --recursive --parallel --in-place "${MODULE_ROOT}/collate_dbt_artifacts_parser" "${MODULE_ROOT}/tests"
+__version__ = "0.1"

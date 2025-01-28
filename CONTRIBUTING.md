@@ -64,7 +64,7 @@ These are the steps to generate the Pydantic models from dbt artifacts in this p
 2. Generate Pydantic models from the JSON schemas
 
 We get JSON schemas of dbt artifacts which we want to add or update from the repository of [dbt-core](https://github.com/dbt-labs/dbt-core/tree/main/schemas/dbt).
-We manage the downloaded JSON schemas in the directory of [dbt_artifacts_parser/resources/](./dbt_artifacts_parser/resources/).
+We manage the downloaded JSON schemas in the directory of [collate_dbt_artifacts_parser/resources/](./collate_dbt_artifacts_parser/resources/).
 
 [dev/generate_parser_classes.sh](./dev/generate_parser_classes.sh) is a script to generate Pydantic models from the JSON schemas of dbt artifacts.
 If we want to add new dbt artifact(s), we need to modify the script to generate the new pydantic models.

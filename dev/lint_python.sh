@@ -19,4 +19,4 @@ set -e
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 MODULE_DIR="$(dirname "$SCRIPT_DIR")"
 
-pylint -v "${MODULE_DIR}"/dbt_artifacts_parser "${MODULE_DIR}"/tests
+pylint -v "${MODULE_DIR}"/collate_dbt_artifacts_parser "${MODULE_DIR}"/tests

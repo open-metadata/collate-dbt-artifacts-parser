@@ -32,8 +32,8 @@ MANIFEST
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-!dbt_artifacts_parser/parsers/manifest
-!dbt_artifacts_parser/resources/manifest
+!collate_dbt_artifacts_parser/parsers/manifest
+!collate_dbt_artifacts_parser/resources/manifest
 
 # Installer logs
 pip-log.txt
