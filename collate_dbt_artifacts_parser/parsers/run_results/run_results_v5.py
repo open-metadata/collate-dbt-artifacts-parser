@@ -6,7 +6,7 @@ from __future__ import annotations
 from enum import Enum
 from typing import Any, Dict, List, Optional, Union
 
-from pydantic import ConfigDict, RootModel
+from pydantic import ConfigDict
 
 from collate_dbt_artifacts_parser.parsers.base import BaseParserModel
 

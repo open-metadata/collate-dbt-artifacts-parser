@@ -7,7 +7,7 @@ from enum import Enum
 from typing import Any, Dict, List, Literal, Optional, Union
 from uuid import UUID
 
-from pydantic import ConfigDict, Field, RootModel, constr
+from pydantic import ConfigDict, Field, constr
 
 from collate_dbt_artifacts_parser.parsers.base import BaseParserModel
 
