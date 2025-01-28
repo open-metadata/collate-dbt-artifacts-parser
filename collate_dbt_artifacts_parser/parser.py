@@ -15,10 +15,12 @@
 #  limitations under the License.
 #
 from typing import Union
+
 from pydantic import ValidationError
 
-from collate_dbt_artifacts_parser.parsers.catalog.catalog_v1 import CatalogV1
 from collate_dbt_artifacts_parser.parsers.catalog.catalog_cloud import CatalogCLOUD
+from collate_dbt_artifacts_parser.parsers.catalog.catalog_v1 import CatalogV1
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_cloud import ManifestCLOUD
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v1 import ManifestV1
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v2 import ManifestV2
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v3 import ManifestV3
@@ -31,20 +33,19 @@ from collate_dbt_artifacts_parser.parsers.manifest.manifest_v9 import ManifestV9
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v10 import ManifestV10
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v11 import ManifestV11
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v12 import ManifestV12
-from collate_dbt_artifacts_parser.parsers.manifest.manifest_cloud import ManifestCLOUD
+from collate_dbt_artifacts_parser.parsers.run_results.run_results_cloud import (
+    RunResultsCLOUD,
+)
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v1 import RunResultsV1
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v2 import RunResultsV2
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v3 import RunResultsV3
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v4 import RunResultsV4
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v5 import RunResultsV5
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v6 import RunResultsV6
-from collate_dbt_artifacts_parser.parsers.run_results.run_results_cloud import (
-    RunResultsCLOUD,
-)
+from collate_dbt_artifacts_parser.parsers.sources.sources_cloud import SourcesCLOUD
 from collate_dbt_artifacts_parser.parsers.sources.sources_v1 import SourcesV1
 from collate_dbt_artifacts_parser.parsers.sources.sources_v2 import SourcesV2
 from collate_dbt_artifacts_parser.parsers.sources.sources_v3 import SourcesV3
-from collate_dbt_artifacts_parser.parsers.sources.sources_cloud import SourcesCLOUD
 from collate_dbt_artifacts_parser.parsers.utils import get_dbt_schema_version
 from collate_dbt_artifacts_parser.parsers.version_map import ArtifactTypes
 
