@@ -1367,7 +1367,7 @@ class SemanticModel(BaseParserModel):
     group: Optional[str] = None
 
 
-class WritableManifest(BaseParserModel):
+class ManifestV11(BaseParserModel):
     model_config = ConfigDict(
         extra="forbid",
     )
@@ -1447,7 +1447,3 @@ class WritableManifest(BaseParserModel):
     semantic_models: Dict[str, SemanticModel] = Field(
         ..., description="The semantic models defined in the dbt project"
     )
-
-
-class ManifestV11(RootModel[WritableManifest]):
-    root: WritableManifest

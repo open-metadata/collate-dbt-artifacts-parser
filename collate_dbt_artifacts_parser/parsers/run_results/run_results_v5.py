@@ -69,7 +69,7 @@ class RunResultOutput(BaseParserModel):
     relation_name: Optional[str] = None
 
 
-class RunResultsArtifact(BaseParserModel):
+class RunResultsV5(BaseParserModel):
     model_config = ConfigDict(
         extra="forbid",
     )
@@ -77,7 +77,3 @@ class RunResultsArtifact(BaseParserModel):
     results: List[RunResultOutput]
     elapsed_time: float
     args: Optional[Dict[str, Any]] = None
-
-
-class RunResultsV5(RootModel[RunResultsArtifact]):
-    root: RunResultsArtifact
