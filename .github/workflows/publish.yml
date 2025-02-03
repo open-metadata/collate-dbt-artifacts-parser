@@ -1,54 +1,41 @@
-name: Publish (pypi)
+#  Copyright 2021 Collate
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#  http://www.apache.org/licenses/LICENSE-2.0
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+
+name: Publish Python Packages
 
 on:
-  release:
-    types:
-      - created
+  workflow_dispatch:
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
+    environment: release
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python
+      - name: Set up Python 3.10
         uses: actions/setup-python@v5
         with:
-          python-version: "3.9"
-      - name: Install uv
+          python-version: 3.10
+      - name: Install Ubuntu related dependencies
         run: |
-          pip install -r requirements.setup.txt
-      - name: Publish
+          sudo apt-get update && sudo apt-get install -y libsasl2-dev unixodbc-dev python3-venv
+      - name: Install and Publish PyPi packages for collate-dbt-artifacts-parser
         env:
-          UV_PUBLISH_TOKEN: "${{ secrets.PYPI_API_TOKEN }}"
+          TWINE_USERNAME: '${{ secrets.TWINE_USERNAME }}'
+          TWINE_PASSWORD: '${{ secrets.TWINE_PASSWORD }}'
         run: |
-          bash dev/publish.sh "pypi"
-
-  test-published-package:
-    needs:
-      - publish
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [ "3.9", "3.10", "3.11", "3.12" ]
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "${{ matrix.python-version }}"
-      # It takes some time when the package gets available.
-      - name: Sleep
-        run: |
-          sleep 30
-      - name: Install package
-        run: |
-          python3 -m pip install -U collate-dbt-artifacts-parser
-      - name: Test package
-        run: |
-          python -c 'import collate_dbt_artifacts_parser; print(collate_dbt_artifacts_parser.__version__)'
+          python3 -m venv env
+          source env/bin/activate
+          pip install -r requirements.setup.txt
+          pip install .
+          python -m build
+          twine check dist/*
+          twine upload dist/* --verbose
