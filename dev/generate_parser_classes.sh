@@ -29,7 +29,7 @@ output_model_type="pydantic_v2.BaseModel"
 #
 # catalog
 #
-catalog_versions=("v1" "cloud")
+catalog_versions=("v1" "cloud_v1" "cloud_v2")
 for ver in "${catalog_versions[@]}"
 do
   # Convert `v1` to `V1`
@@ -49,7 +49,7 @@ done
 #
 # manifest
 #
-manifest_versions=("v1" "v2" "v3" "v4" "v5" "v6" "v7" "v8" "v9" "v10" "v11" "v12" "cloud")
+manifest_versions=("v1" "v2" "v3" "v4" "v5" "v6" "v7" "v8" "v9" "v10" "v11" "v12" "cloud_v1" "cloud_v2")
 for ver in "${manifest_versions[@]}"
 do
   # Convert `v1` to `V1`
@@ -69,7 +69,7 @@ done
 #
 # run-results
 #
-run_results_versions=("v1" "v2" "v3" "v4" "v5" "v6" "cloud")
+run_results_versions=("v1" "v2" "v3" "v4" "v5" "v6" "cloud_v1" "cloud_v2")
 for ver in "${run_results_versions[@]}"
 do
   # Convert `v1` to `V1`
@@ -89,7 +89,7 @@ done
 #
 # sources
 #
-sources_versions=("v1" "v2" "v3" "cloud")
+sources_versions=("v1" "v2" "v3" "cloud_v1" "cloud_v2")
 for ver in "${sources_versions[@]}"
 do
   # Convert `v1` to `V1`
