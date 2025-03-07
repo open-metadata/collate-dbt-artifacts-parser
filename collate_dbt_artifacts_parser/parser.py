@@ -21,8 +21,12 @@ from pydantic import ValidationError
 from collate_dbt_artifacts_parser.parsers.catalog.catalog_cloud_v1 import CatalogCLOUDV1
 from collate_dbt_artifacts_parser.parsers.catalog.catalog_cloud_v2 import CatalogCLOUDV2
 from collate_dbt_artifacts_parser.parsers.catalog.catalog_v1 import CatalogV1
-from collate_dbt_artifacts_parser.parsers.manifest.manifest_cloud_v1 import ManifestCLOUDV1
-from collate_dbt_artifacts_parser.parsers.manifest.manifest_cloud_v2 import ManifestCLOUDV2
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_cloud_v1 import (
+    ManifestCLOUDV1,
+)
+from collate_dbt_artifacts_parser.parsers.manifest.manifest_cloud_v2 import (
+    ManifestCLOUDV2,
+)
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v1 import ManifestV1
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v2 import ManifestV2
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v3 import ManifestV3
@@ -36,9 +40,11 @@ from collate_dbt_artifacts_parser.parsers.manifest.manifest_v10 import ManifestV
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v11 import ManifestV11
 from collate_dbt_artifacts_parser.parsers.manifest.manifest_v12 import ManifestV12
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_cloud_v1 import (
-    RunResultsCLOUDV1,)
+    RunResultsCLOUDV1,
+)
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_cloud_v2 import (
-    RunResultsCLOUDV2,)
+    RunResultsCLOUDV2,
+)
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v1 import RunResultsV1
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v2 import RunResultsV2
 from collate_dbt_artifacts_parser.parsers.run_results.run_results_v3 import RunResultsV3
