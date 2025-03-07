@@ -5,10 +5,10 @@ from __future__ import annotations
 
 from enum import Enum
 from typing import Any, Dict, List, Literal, Optional, Union
-from typing_extensions import Annotated
 from uuid import UUID
 
 from pydantic import ConfigDict, Field, StringConstraints
+from typing_extensions import Annotated
 
 from collate_dbt_artifacts_parser.parsers.base import BaseParserModel
 
