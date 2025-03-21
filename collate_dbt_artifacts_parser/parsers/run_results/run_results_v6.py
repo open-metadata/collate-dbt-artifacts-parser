@@ -13,7 +13,7 @@ from collate_dbt_artifacts_parser.parsers.base import BaseParserModel
 
 class Metadata(BaseParserModel):
     model_config = ConfigDict(
-        extra="forbid",
+        extra="allow",
     )
     dbt_schema_version: str
     dbt_version: Optional[str] = "1.9.0b2"
@@ -46,7 +46,7 @@ class Status2(Enum):
 
 class TimingItem(BaseParserModel):
     model_config = ConfigDict(
-        extra="forbid",
+        extra="allow",
     )
     name: str
     started_at: Optional[str] = None
@@ -55,7 +55,7 @@ class TimingItem(BaseParserModel):
 
 class BatchResults(BaseParserModel):
     model_config = ConfigDict(
-        extra="forbid",
+        extra="allow",
     )
     successful: Optional[List[List]] = None
     failed: Optional[List[List]] = None
@@ -63,7 +63,7 @@ class BatchResults(BaseParserModel):
 
 class Result(BaseParserModel):
     model_config = ConfigDict(
-        extra="forbid",
+        extra="allow",
     )
     status: Union[Status, Status1, Status2]
     timing: List[TimingItem]
@@ -81,7 +81,7 @@ class Result(BaseParserModel):
 
 class RunResultsV6(BaseParserModel):
     model_config = ConfigDict(
-        extra="forbid",
+        extra="allow",
     )
     metadata: Metadata = Field(..., title="BaseArtifactMetadata")
     results: List[Result]

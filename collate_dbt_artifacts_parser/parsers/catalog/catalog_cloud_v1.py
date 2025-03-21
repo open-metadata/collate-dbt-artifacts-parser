@@ -11,7 +11,7 @@ from collate_dbt_artifacts_parser.parsers.base import BaseParserModel
 
 
 class Metadata(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     dbt_schema_version: Optional[str] = None
     dbt_version: Optional[str] = '1.10.0a1'
     generated_at: Optional[str] = None
@@ -20,7 +20,7 @@ class Metadata(BaseParserModel):
 
 
 class Metadata1(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     type: str
     schema_: str = Field(..., alias='schema')
     name: str
@@ -30,7 +30,7 @@ class Metadata1(BaseParserModel):
 
 
 class Columns(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     type: str
     index: int
     name: str
@@ -38,7 +38,7 @@ class Columns(BaseParserModel):
 
 
 class Stats(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     id: str
     label: str
     value: Optional[Union[bool, str, float]] = None
@@ -47,7 +47,7 @@ class Stats(BaseParserModel):
 
 
 class Nodes(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     metadata: Metadata1 = Field(..., title='TableMetadata')
     columns: Dict[str, Columns]
     stats: Dict[str, Stats]
@@ -55,7 +55,7 @@ class Nodes(BaseParserModel):
 
 
 class Sources(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     metadata: Metadata1 = Field(..., title='TableMetadata')
     columns: Dict[str, Columns]
     stats: Dict[str, Stats]
@@ -63,7 +63,7 @@ class Sources(BaseParserModel):
 
 
 class CatalogCLOUDV1(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     metadata: Metadata = Field(..., title='CatalogMetadata')
     nodes: Dict[str, Nodes]
     sources: Dict[str, Sources]

@@ -12,7 +12,7 @@ from collate_dbt_artifacts_parser.parsers.base import BaseParserModel
 
 
 class Metadata(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     dbt_schema_version: Optional[str] = None
     dbt_version: Optional[str] = '1.10.0a1'
     generated_at: Optional[str] = None
@@ -25,7 +25,7 @@ class Status(Enum):
 
 
 class Result(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     unique_id: str
     error: Optional[Union[str, int]] = None
     status: Status
@@ -45,33 +45,33 @@ class PeriodEnum(Enum):
 
 
 class WarnAfterItem(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     count: Optional[int] = None
     period: Optional[PeriodEnum] = None
 
 
 class ErrorAfterItem(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     count: Optional[int] = None
     period: Optional[PeriodEnum] = None
 
 
 class Criteria(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     warn_after: Optional[WarnAfterItem] = None
     error_after: Optional[ErrorAfterItem] = None
     filter: Optional[str] = None
 
 
 class TimingItem(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     name: str
     started_at: Optional[str] = None
     completed_at: Optional[str] = None
 
 
 class Result1(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     unique_id: str
     max_loaded_at: str
     snapshotted_at: str
@@ -85,7 +85,7 @@ class Result1(BaseParserModel):
 
 
 class SourcesCLOUDV1(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     metadata: Metadata = Field(..., title='FreshnessMetadata')
     results: List[Union[Result, Result1]]
     elapsed_time: float
