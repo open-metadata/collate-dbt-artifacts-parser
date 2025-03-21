@@ -12,7 +12,7 @@ from collate_dbt_artifacts_parser.parsers.base import BaseParserModel
 
 
 class Metadata(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     dbt_schema_version: str
     dbt_version: Optional[str] = '1.10.0a1'
     generated_at: Optional[str] = None
@@ -45,20 +45,20 @@ class StatusEnum2(Enum):
 
 
 class TimingItem(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     name: str
     started_at: Optional[str] = None
     completed_at: Optional[str] = None
 
 
 class BatchResult(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     successful: Optional[List[List]] = None
     failed: Optional[List[List]] = None
 
 
 class Result(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     status: Union[StatusEnum, StatusEnum1, StatusEnum2]
     timing: List[TimingItem]
     thread_id: str
@@ -74,7 +74,7 @@ class Result(BaseParserModel):
 
 
 class RunResultsCLOUDV2(BaseParserModel):
-    model_config = ConfigDict(extra='forbid',)
+    model_config = ConfigDict(extra='allow',)
     metadata: Metadata = Field(..., title='BaseArtifactMetadata')
     results: List[Result]
     elapsed_time: float
