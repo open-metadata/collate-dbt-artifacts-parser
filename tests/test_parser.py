@@ -217,6 +217,17 @@ class TestCatalogParser:
                 "manifest_1.9.json",
             ),
         ),
+        (
+            "v20",
+            os.path.join(
+                get_project_root(),
+                "tests",
+                "resources",
+                "v20",
+                "jaffle_shop",
+                "manifest.json",
+            ),
+        ),
     ],
 )
 class TestManifestParser:
