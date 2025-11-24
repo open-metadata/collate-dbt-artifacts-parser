@@ -164,7 +164,7 @@ def parse_manifest(
         return ManifestV10(**manifest)
     elif dbt_schema_version == ArtifactTypes.MANIFEST_V11.value.dbt_schema_version:
         return ManifestV11(**manifest)
-    elif dbt_schema_version == ArtifactTypes.MANIFEST_V12.value.dbt_schema_version:
+    elif dbt_schema_version in (ArtifactTypes.MANIFEST_V12.value.dbt_schema_version, ArtifactTypes.MANIFEST_V20.value.dbt_schema_version):
         return _try_parsers(manifest,
                             [ManifestV12, ManifestCLOUDV1, ManifestCLOUDV2])
     raise ValueError("Not a manifest.json")

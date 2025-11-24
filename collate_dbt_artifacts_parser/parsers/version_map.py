@@ -93,6 +93,9 @@ class ArtifactTypes(Enum):
     MANIFEST_V12 = ArtifactType(
         "https://schemas.getdbt.com/dbt/manifest/v12.json", ManifestV12
     )
+    MANIFEST_V20 = ArtifactType(
+        "https://schemas.getdbt.com/dbt/manifest/v20.json", ManifestV12
+    )
     # RunResults
     RUN_RESULTS_V1 = ArtifactType(
         "https://schemas.getdbt.com/dbt/run-results/v1.json", RunResultsV1
