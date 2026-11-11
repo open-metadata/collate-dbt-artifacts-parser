@@ -218,6 +218,17 @@ class TestCatalogParser:
             ),
         ),
         (
+            "v12",
+            os.path.join(
+                get_project_root(),
+                "tests",
+                "resources",
+                "v12",
+                "jaffle_shop",
+                "manifest_2.0.json",
+            ),
+        ),
+        (
             "v20",
             os.path.join(
                 get_project_root(),
@@ -325,3 +336,21 @@ class TestRunResultsParser:
 #             sources_obj.metadata.dbt_schema_version
 #             == f"https://schemas.getdbt.com/dbt/sources/{version}.json"
 #         )
+
+
+def test_parse_sources_v3_dbt_fusion_capitalized_status():
+    path = os.path.join(
+        get_project_root(),
+        "tests",
+        "resources",
+        "v3",
+        "jaffle_shop",
+        "sources_2.0.json",
+    )
+    with open(path, "r", encoding="utf-8") as fp:
+        sources_obj = parser.parse_sources(yaml.safe_load(fp))
+    assert {r.unique_id: r.status.value for r in sources_obj.results} == {
+        "source.rich.raw.raw_customers": "pass",
+        "source.rich.raw.raw_orders": "warn",
+        "source.rich.raw.raw_orders_err": "error",
+    }

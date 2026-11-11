@@ -1456,6 +1456,7 @@ class Argument(BaseParserModel):
 
 class SupportedLanguage(Enum):
     python = "python"
+    javascript = "javascript"
     sql = "sql"
 
 
