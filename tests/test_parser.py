@@ -218,6 +218,17 @@ class TestCatalogParser:
             ),
         ),
         (
+            "v12",
+            os.path.join(
+                get_project_root(),
+                "tests",
+                "resources",
+                "v12",
+                "jaffle_shop",
+                "manifest_2.0.json",
+            ),
+        ),
+        (
             "v20",
             os.path.join(
                 get_project_root(),
