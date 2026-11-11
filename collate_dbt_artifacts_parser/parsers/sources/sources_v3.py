@@ -41,6 +41,13 @@ class Status1(Enum):
     error = "error"
     runtime_error = "runtime error"
 
+    # dbt 2.x (Fusion) writes the same statuses capitalized ("Pass", "Warn", "Error")
+    @classmethod
+    def _missing_(cls, value):
+        if isinstance(value, str):
+            return next((m for m in cls if m.value == value.lower()), None)
+        return None
+
 
 class Period(Enum):
     minute = "minute"
