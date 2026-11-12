@@ -3622,7 +3622,7 @@ class UnitTests(BaseParserModel):
     overrides: Optional[Override] = None
     depends_on: Optional[DependsOn18] = Field(None, title='DependsOn')
     config: Optional[Config29] = Field(None, title='UnitTestConfig')
-    checksum: Optional[str] = None
+    checksum: Optional[Union[str, Checksum]] = None
     schema_: Optional[str] = Field(None, alias='schema')
     created_at: Optional[float] = None
     versions: Optional[Version] = None
