@@ -4090,7 +4090,7 @@ class UnitTests(BaseParserModel):
     overrides: Optional[Overrides] = None
     depends_on: Optional[DependsOn18] = Field(None, title="DependsOn")
     config: Optional[Config41] = Field(None, title="UnitTestConfig")
-    checksum: Optional[str] = None
+    checksum: Optional[Union[str, Checksum]] = None
     schema_: Optional[str] = Field(None, alias="schema")
     created_at: Optional[float] = None
     versions: Optional[Versions] = None
